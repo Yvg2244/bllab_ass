@@ -1,10 +1,12 @@
 import React from 'react'
 import BalanceCard from './BalanceCard'
+import TransactionCard from './TransactionCard'
 
 const AdressDataDisplay = () => {
   return (
-    <div className='bg-primary_black flex my-4 justify-center'>
+    <div className='w-full bg-primary_black flex flex-col my-4 items-center'>
         <BalanceCard/>
+        <TransactionCard/>
     </div>
   )
 }
