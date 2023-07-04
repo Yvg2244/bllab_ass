@@ -3,6 +3,7 @@ import {useDispatch} from "react-redux"
 import "./App.css";
 import Header from "./Components/Header";
 import SearchBar from "./Components/SearchBar";
+import DisplaySection from "./Components/DisplaySection";
 
 function App() {
   const dispatch=useDispatch();
@@ -11,6 +12,7 @@ function App() {
     <div className="">
       <Header />
       <SearchBar />
+      <DisplaySection/>
     </div>
   );
 }

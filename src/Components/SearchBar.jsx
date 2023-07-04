@@ -9,7 +9,7 @@ const SearchBar = () => {
   const handleAddress = () => {
     axios
       .get(
-        `https://cardano-mainnet.blockfrost.io/api/v0/addresses/${address}/transactions`,
+        `https://cardano-mainnet.blockfrost.io/api/v0/addresses/${address}`,
         {
           headers: {
             project_id: "mainnetKUIQg7ExMWzcLjG4uY2Cjz8b0ktH80DI",
@@ -23,7 +23,37 @@ const SearchBar = () => {
         });
       })
       .catch((err) => console.log(err));
-    console.log(address);
+      axios
+      .get(
+        `https://cardano-mainnet.blockfrost.io/api/v0/addresses/${address}/transactions`,
+        {
+          headers: {
+            project_id: "mainnetKUIQg7ExMWzcLjG4uY2Cjz8b0ktH80DI",
+          },
+        }
+      )
+      .then((res) => {
+        dispatch({
+          type: " updateAddressTransactions",
+          payload: res.data,
+        });
+      })
+      .catch((err) => console.log(err)); axios
+      .get(
+        `https://cardano-mainnet.blockfrost.io/api/v0/addresses/${address}/utxos`,
+        {
+          headers: {
+            project_id: "mainnetKUIQg7ExMWzcLjG4uY2Cjz8b0ktH80DI",
+          },
+        }
+      )
+      .then((res) => {
+        dispatch({
+          type: "updateAddressUtxo",
+          payload: res.data,
+        });
+      })
+      .catch((err) => console.log(err));
   };
   return (
     <div className="w-full p-5 gap-5 bg-primary_black flex flex-col  items-center">

@@ -5,7 +5,9 @@ import { updateAdressReducer } from "./reducer"
 export const store=configureStore({
     reducer:{
        updateReducer:updateAdressReducer,
-       updateDataReducer:updateAdressReducer
+       updateDataReducer:updateAdressReducer,
+       updateTransactionReducer:updateAdressReducer,
+       updateUtxoReducer:updateAdressReducer,
     }
 })
 export default store
