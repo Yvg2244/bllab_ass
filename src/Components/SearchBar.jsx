@@ -5,8 +5,12 @@ import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
 const SearchBar = () => {
   const dispatch = useDispatch();
-  const { address } = useSelector((state) => state.updateReducer);
+  const { address, loader } = useSelector((state) => state.updateReducer);
   const handleAddress = () => {
+    dispatch({
+      type: "updateLoader",
+      payload: true,
+    });
     axios
       .get(
         `https://cardano-mainnet.blockfrost.io/api/v0/addresses/${address}`,
@@ -21,9 +25,18 @@ const SearchBar = () => {
           type: "updateAddressData",
           payload: res.data,
         });
+        dispatch({
+          type: "updateLoader",
+          payload: false,
+        });
       })
-      .catch((err) => console.log(err));
-      axios
+      .catch((err) =>
+        dispatch({
+          type: "updateLoader",
+          payload: false,
+        })
+      );
+    axios
       .get(
         `https://cardano-mainnet.blockfrost.io/api/v0/addresses/${address}/transactions`,
         {
@@ -38,7 +51,8 @@ const SearchBar = () => {
           payload: res.data,
         });
       })
-      .catch((err) => console.log(err)); axios
+      .catch((err) => console.log(err));
+    axios
       .get(
         `https://cardano-mainnet.blockfrost.io/api/v0/addresses/${address}/utxos`,
         {

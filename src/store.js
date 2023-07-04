@@ -8,6 +8,7 @@ export const store=configureStore({
        updateDataReducer:updateAdressReducer,
        updateTransactionReducer:updateAdressReducer,
        updateUtxoReducer:updateAdressReducer,
+       updateLoaderReducer:updateAdressReducer
     }
 })
 export default store

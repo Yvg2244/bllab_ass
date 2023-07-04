@@ -3,7 +3,8 @@ const initialState = {
   address: null,
   addressData: null,
   addressTransactions:null,
-  addressUtxo:null
+  addressUtxo:null,
+  loader:false,
 };
 export const updateAdressReducer = createReducer(initialState, {
   updateAddress: (state, action) => {
@@ -18,4 +19,8 @@ export const updateAdressReducer = createReducer(initialState, {
   updateAddressUtxo: (state, action) => {
     state.addressUtxo = action.payload;
   },
+  updateLoader: (state, action) => {
+    state.loader = action.payload;
+  },
+
 });
