@@ -1,13 +1,15 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import NoAddress from "./NoAddress";
+import AdressDataDisplay from "./AdressDataDisplay";
 
 const DisplaySection = () => {
   // const { address } = useSelector((state) => state.updateReducer);
   const { addressData } = useSelector((state) => state.updateDataReducer);
 
   return (
-    <div>
-      {addressData == null ? <p>No transactions found</p> : <p>Data</p>}
+    <div className="text-white">
+      {addressData == null ? <NoAddress/> : <AdressDataDisplay/>}
     </div>
   );
 };

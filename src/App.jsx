@@ -9,7 +9,7 @@ function App() {
   const dispatch=useDispatch();
  
   return (
-    <div className="">
+    <div className="bg-primary_black">
       <Header />
       <SearchBar />
       <DisplaySection/>

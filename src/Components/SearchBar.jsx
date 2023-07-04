@@ -56,10 +56,10 @@ const SearchBar = () => {
       .catch((err) => console.log(err));
   };
   return (
-    <div className="w-full p-5 gap-5 bg-primary_black flex flex-col  items-center">
+    <div className="w-full p-5 gap-5 bg-primary_black flex flex-col items-center">
       <input
         type="text"
-        className="w-full p-2 border-[1px] border-white bg-secoundry_black rounded-md text-white"
+        className="w-full p-2 border-[1px] border-[#FFFFFF] bg-secoundry_black text-[#FFFFFF]  rounded-md "
         label="Address"
         onChange={(e) => {
           dispatch({
