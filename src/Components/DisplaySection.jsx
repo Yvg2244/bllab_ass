@@ -8,7 +8,7 @@ const DisplaySection = () => {
   const { addressData } = useSelector((state) => state.updateDataReducer);
 
   return (
-    <div className="text-white w-full justify-center">
+    <div className="text-white w-full h-full justify-center">
       {addressData == null ? <NoAddress/> : <AdressDataDisplay/>}
     </div>
   );
