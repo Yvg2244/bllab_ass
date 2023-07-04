@@ -34,6 +34,10 @@ const SearchBar = () => {
         dispatch({
           type: "updateLoader",
           payload: false,
+        }),
+        dispatch({
+          type: "updateAddressData",
+          payload: null,
         })
       );
     axios
